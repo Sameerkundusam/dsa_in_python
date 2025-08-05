@@ -1,0 +1,19 @@
+def reverseStack(arr):
+    if len(arr) == 0:
+        return
+    temp = arr.pop()
+    reverseStack(arr)
+    insert(arr,temp)
+    
+def insert(arr,ele):
+    if len(arr) ==0:
+        arr.append(ele)
+        return
+    v = arr.pop()
+    insert(arr,ele)
+    arr.append(v)
+    
+    
+arr =  [1,2,3,1,5,3,9,10,11,1]
+reverseStack(arr)
+print(arr)
