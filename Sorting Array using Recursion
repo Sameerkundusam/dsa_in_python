@@ -1,0 +1,23 @@
+def sortArr(arr):
+    # Base condition
+    if len(arr) == 0:
+        return
+    # Hypothesis
+    temp = arr.pop()
+    sortArr(arr)
+    # Inductoin
+    insert(arr,temp)
+    
+def insert(arr , new):
+    print(arr)
+    # Base condition
+    if len(arr) == 0 or arr[-1] <= new:
+        arr.append(new)
+        return
+    # Hypothesis
+    v = arr.pop()
+    insert(arr , new)
+    # Inductoin
+    arr.append(v)
+arr =  [1,2,3,1,5,3,9,10,11,1,2]
+sortArr(arr)
