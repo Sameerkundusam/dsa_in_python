@@ -1,0 +1,19 @@
+m = 0
+def sortArr(arr,m):
+    # print(m)
+    # Base condition
+    if m == 1:
+        # print('inside m')
+        arr.pop()
+        return
+    # Hypothesis
+    temp = arr.pop()
+    sortArr(arr,m-1)
+    # Inductoin
+    arr.append(temp)
+arr =  [1,2,3,1,5,3,9,10,11,1]
+print(len(arr))
+print(arr[len(arr)//2])
+sortArr(arr,len(arr)//2)
+
+print(arr)
