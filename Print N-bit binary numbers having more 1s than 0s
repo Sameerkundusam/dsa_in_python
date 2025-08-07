@@ -1,0 +1,20 @@
+# Input:  
+# n = 3
+# Output: 
+# {"111", "110", "101"}
+# Explanation: Valid numbers are those where each prefix has more 1s than 0s.
+# 111: all its prefixes (1, 11, and 111) have more 1s than 0s.
+# 110: all its prefixes (1, 11, and 110) have more 1s than 0s.
+# 101: all its prefixes (1, 10, and 101) have more 1s than 0s.
+# So, the output is "111, 110, 101".
+n = 3
+ans = []
+def findAllPairs(one,zero,n,output):
+    if n == 0 :
+        ans.append(output)
+        return
+    findAllPairs(one+1,zero,n-1,output+'1')
+    if one > zero:
+        findAllPairs(one,zero+1,n-1,output+'0')
+findAllPairs(0,0,n,'')
+print(ans)
