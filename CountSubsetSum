@@ -1,22 +1,22 @@
-def countSubset(n, s):
-    t = [[0 for _ in range(s+1)] for _ in range(len(n)+1)]
-
-    # Base case: sum = 0 → 1 way (empty subset)
-    for i in range(len(n)+1):
-        t[i][0] = 1
-
-    # Fill DP table
-    for i in range(1, len(n)+1):
-        for j in range(1, s+1):
-            if n[i-1] <= j:
-                t[i][j] = t[i-1][j-n[i-1]] + t[i-1][j]
-            else:
-                t[i][j] = t[i-1][j]
-
-    # Debug print
-    for row in t:
-        print(row)
-
-    return t[len(n)][s]
-
-print(countSubset([1, 2, 3, 4], 5))
+def countPartitions(self, arr, d):
+        def countSubset(n, s):
+            t = [[0 for _ in range(s+1)] for _ in range(len(n)+1)]
+        
+            for i in range(len(n)+1):
+                t[i][0] = 1
+        
+            # Fill DP table
+            for i in range(1, len(n)+1):
+                for j in range(s+1):
+                    if n[i-1] <= j:
+                        t[i][j] = t[i-1][j-n[i-1]] + t[i-1][j]
+                    else:
+                        t[i][j] = t[i-1][j]
+        
+            return t[len(n)][s]
+            
+        if (d + sum(arr)) % 2 != 0:
+            return 0
+        
+        s = (d + sum(arr))//2
+        return (countSubset(arr, s))
