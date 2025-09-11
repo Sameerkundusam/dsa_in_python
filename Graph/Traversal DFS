@@ -1,0 +1,17 @@
+# there is very minimum difference in bfs and dfs traversal we can also use list instead of deque in this dfs but the pop operation will take only 1 operation so we are using this
+# deque in place of list the every logic is same as bfs
+def dfs(adj):
+  vis = set()
+  n = len(adj)
+  for i in range(n):
+    if i in vis:
+      continue
+    st = deque([i])
+    while st:
+      el = st.pop()
+			print(el, end= '')
+			for adjel in range(n):
+				if adj[el][adjel] and adjel not in vis:
+					vis.add(adjel)
+					st.append(adjel)
+		print()
