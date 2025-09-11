@@ -1,15 +1,18 @@
+from collections import deque
+
 def bfs(adj):
-  vis = set()
-  n = len(adj)
-  for i in range(n):
-    if i in vis:
-      continue
-    q = deque([i])
-    while q:
-      el = q.pop()
-			print(el, end= '')
-			for adjel in range(n):
-				if adj[el][adjel] and adjel not in vis:
-					vis.add(adjel)
-					q.appendleft(adjel)
-		print()
+    vis = set()
+    n = len(adj)
+    for i in range(n):                # loop ensures disconnected components are also covered
+        if i in vis:
+            continue
+		vis.add(i)
+        q = deque([i])
+        while q:
+            el = q.pop()              # take element from queue
+            print(el, end=' ')
+            for adjel in range(n):    # check all neighbors
+                if adj[el][adjel] and adjel not in vis:
+                    vis.add(adjel)    # mark visited
+                    q.appendleft(adjel)
+        print()
