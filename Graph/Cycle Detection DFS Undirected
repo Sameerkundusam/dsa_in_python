@@ -1,0 +1,20 @@
+def cycleDetection(adj):
+  vis = set()
+  n = len(adj)
+  for i in range(n):
+    if i in vis:
+      continue
+    vis.add(i)
+    st = deque([i,-1])
+    while st:
+      el, par = q.pop()
+      for adjel in range(n):
+        if adj[el][adjel]:
+          if adjel not in vis:
+            vis.add(adjel)
+            st.append([adjel,el])
+          elif adjel != par:
+            print('cycle fould at',el,'-',adjel)
+            return
+    print('no cycle')
+          
