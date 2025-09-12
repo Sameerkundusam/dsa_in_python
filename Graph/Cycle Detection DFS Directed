@@ -1,0 +1,22 @@
+def dfsRecursion(adj, vis, el, path):
+  vis.add(el)
+  path.add(el)
+  for adjel in range(len(adj)):
+    if adj[el][adjel]:
+      if adjel not in vis:
+        if dfsRecursion(adj,vis,adjel,path):
+          return True
+      elif adjel in path:
+          print(f'cycle found at {el} - {adjel}')
+          return True
+  path.remove(el)
+  return False
+
+#Driver fuction
+def dfs(adj):
+  for i in range(len(adj)):
+    if i in vis:
+      continue
+    if dfsRecursion(adj, vis, i, set():
+      return
+  print('no cycle')
