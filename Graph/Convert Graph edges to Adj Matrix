@@ -1,0 +1,27 @@
+def edgesToAdjMatrixDirected(adjlist):
+    n = max([i[1] for i in adjlist] + [i[0] for i in adjlist])
+    adjmatrix = [[0]*(n+1) for i in range(n+1)]
+    for i in adjlist:
+        adjmatrix[i[0]][i[1]] = 1
+    return adjmatrix
+    
+def edgesToAdjMatrixUndirected(adjlist):
+    n = max([i[1] for i in adjlist] + [i[0] for i in adjlist])
+    adjmatrix = [[0]*(n+1) for i in range(n+1)]
+    for i in adjlist:
+        adjmatrix[i[0]][i[1]]=adjmatrix[i[1]][i[0]] = 1
+    return adjmatrix
+
+adjlist = [[1,2],[2,3],[3,4],[5,7],[6,7]]
+adjmat = edgesToAdjMatrixDirected(adjlist)
+print('Directed Graph adjency matrix')
+print()
+for i in adjmat:
+    print(i)
+    
+print()
+print('Undirected Graph adjency matrix')
+print()
+adjmat = edgesToAdjMatrixUndirected(adjlist)
+for i in adjmat:
+    print(i)
